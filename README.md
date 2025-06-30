@@ -3,6 +3,8 @@ ZSH, Tmux, Vim and ssh setup on both local/remote machines.
 
 ## Installation
 
+From a pod: curl -s https://raw.githubusercontent.com/constanzafierro/dotfiles/master/runpod/runpod_setup.sh | bash
+
 ### Step 1
 Install dependencies (e.g. oh-my-zsh and related plugins), you can specify options to install specific programs: tmux, zsh, note that your dev-vm will already have tmux and zsh installed so you don't need to provide any options in this case, but you may need to provide these if you are installing locally. 
 
