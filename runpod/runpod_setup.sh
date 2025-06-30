@@ -23,4 +23,4 @@ chsh -s /usr/bin/zsh
 cd ..
 
 # 4) Setup github
-echo ./scripts/setup_github.sh "jpl.hughes@btinternet.com" "John Hughes"
+echo ./scripts/setup_github.sh "cfierromella@gmail.com" "constanzafierro"
