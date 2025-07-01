@@ -1,5 +1,12 @@
 #!/bin/bash
 
+KEY_FILE="$HOME/.env_vars"
+if [[ ! -f "$KEY_FILE" ]]; then
+  echo "Key file not found at $KEY_FILE"
+  exit 1
+fi
+source "$KEY_FILE"
+
 # 1) Setup linux dependencies
 su -c 'apt-get update && apt-get install -y sudo'
 sudo apt-get install -y less nano htop ncdu nvtop lsof rsync btop jq
@@ -12,6 +19,8 @@ uv venv
 source .venv/bin/activate
 uv pip install ipykernel simple-gpu-scheduler # very useful on runpod with multi-GPUs https://pypi.org/project/simple-gpu-scheduler/
 python -m ipykernel install --user --name=venv # so it shows up in jupyter notebooks within vscode
+uv pip install wandb
+wandb login "$WANDB_API_KEY"
 
 # 3) Setup dotfiles and ZSH
 mkdir git && cd git
@@ -23,4 +32,4 @@ chsh -s /usr/bin/zsh
 cd ..
 
 # 4) Setup github
-echo ./scripts/setup_github.sh "cfierromella@gmail.com" "constanzafierro"
+echo ./setup_github.sh "cfierromella@gmail.com" "constanzafierro"
