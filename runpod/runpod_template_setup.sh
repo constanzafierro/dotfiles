@@ -20,9 +20,23 @@ chsh -s /usr/bin/zsh
 ./deploy.sh
 cd ..
 
-pip install wandb huggingface-hub
-wandb login "$WANDB_API_KEY"
+cat >> ~/.zshrc << 'EOF'
 
-# 4) Setup github
-chmod +x git/dotfiles/runpod/setup_github.sh
-./git/dotfiles/runpod/setup_github.sh "cfierromella@gmail.com" "constanzafierro"
+# >>> conda initialize >>>
+__conda_setup="$('/root/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/root/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/root/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/root/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+
+# Optional: auto-activate your preferred env
+conda activate py3.11
+# <<< conda initialize <<<
+
+EOF
