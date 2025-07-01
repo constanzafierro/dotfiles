@@ -29,7 +29,7 @@ chsh -s /usr/bin/zsh
 ./deploy.sh
 cd ..
 
-uv pip install wandb huggingface-cli
+uv pip install wandb huggingface-hub
 wandb login "$WANDB_API_KEY"
 huggingface-cli login
 
