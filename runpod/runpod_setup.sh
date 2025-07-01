@@ -19,8 +19,6 @@ uv venv
 source .venv/bin/activate
 uv pip install ipykernel simple-gpu-scheduler # very useful on runpod with multi-GPUs https://pypi.org/project/simple-gpu-scheduler/
 python -m ipykernel install --user --name=venv # so it shows up in jupyter notebooks within vscode
-uv pip install wandb
-wandb login "$WANDB_API_KEY"
 
 # 3) Setup dotfiles and ZSH
 mkdir git && cd git
@@ -30,6 +28,10 @@ cd dotfiles
 chsh -s /usr/bin/zsh
 ./deploy.sh
 cd ..
+
+uv pip install wandb huggingface-cli
+wandb login "$WANDB_API_KEY"
+huggingface-cli login
 
 # 4) Setup github
 echo ./setup_github.sh "cfierromella@gmail.com" "constanzafierro"
