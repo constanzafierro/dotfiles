@@ -31,7 +31,8 @@ cd ..
 
 uv pip install wandb huggingface-hub
 wandb login "$WANDB_API_KEY"
-huggingface-cli login
+
+cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
 
 # 4) Setup github
 echo ./setup_github.sh "cfierromella@gmail.com" "constanzafierro"
