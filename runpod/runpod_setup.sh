@@ -34,6 +34,7 @@ wandb login "$WANDB_API_KEY"
 
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
 echo 'bindkey \^U backward-kill-line' >> ~/.zshrc
+git config --global core.excludesfile /workspace/.gitignore_global
 
 # 4) Setup github
 echo ./setup_github.sh "cfierromella@gmail.com" "constanzafierro"
