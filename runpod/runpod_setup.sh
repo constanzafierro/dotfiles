@@ -27,7 +27,7 @@ cd dotfiles
 ./install.sh --zsh --tmux
 chsh -s /usr/bin/zsh
 ./deploy.sh
-cd ..
+cd
 
 uv pip install wandb huggingface-hub
 wandb login "$WANDB_API_KEY"
