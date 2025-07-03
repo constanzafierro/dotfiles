@@ -31,10 +31,12 @@ cd ..
 
 uv pip install wandb huggingface-hub
 wandb login "$WANDB_API_KEY"
+uv pip install vllm --torch-backend=auto
+uv pip install packaging ninja
+git clone https://github.com/OpenAccess-AI-Collective/axolotl
+cd axolotl
+uv pip install -e '.[flash-attn,deepspeed]' --no-build-isolation
 
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
 echo 'bindkey \^U backward-kill-line' >> ~/.zshrc
 git config --global core.excludesfile /workspace/.gitignore_global
-
-# 4) Setup github
-echo ./setup_github.sh "cfierromella@gmail.com" "constanzafierro"
