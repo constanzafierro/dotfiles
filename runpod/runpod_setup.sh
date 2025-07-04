@@ -32,10 +32,13 @@ cd
 uv pip install wandb huggingface-hub
 wandb login "$WANDB_API_KEY"
 uv pip install vllm --torch-backend=auto
-uv pip install packaging ninja
-git clone https://github.com/OpenAccess-AI-Collective/axolotl
-cd axolotl
-uv pip install -e '.[flash-attn,deepspeed]' --no-build-isolation
+if [[ "$1" != "--no-axolotl" ]]; then
+  uv pip install packaging ninja
+  git clone https://github.com/OpenAccess-AI-Collective/axolotl
+  cd axolotl
+  uv pip install -e '.[flash-attn,deepspeed]' --no-build-isolation
+  cd
+fi
 
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
 echo 'bindkey \^U backward-kill-line' >> ~/.zshrc
