@@ -33,6 +33,7 @@ uv pip install wandb huggingface-hub
 wandb login "$WANDB_API_KEY"
 uv pip install vllm --torch-backend=auto
 uv pip install packaging ninja
+uv pip install xformers==0.0.31.post1
 git clone https://github.com/OpenAccess-AI-Collective/axolotl
 cd axolotl
 uv pip install -e '.[flash-attn,deepspeed]' --no-build-isolation
