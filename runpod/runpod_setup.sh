@@ -37,7 +37,6 @@ git clone https://github.com/OpenAccess-AI-Collective/axolotl
 cd axolotl
 uv pip install -e '.[flash-attn,deepspeed]' --no-build-isolation
 cd
-axolotl fetch deepspeed_configs
 
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
 echo 'bindkey \^U backward-kill-line' >> ~/.zshrc
