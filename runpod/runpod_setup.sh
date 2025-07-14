@@ -17,12 +17,11 @@ source $HOME/.local/bin/env
 uv python install 3.11
 uv venv
 source .venv/bin/activate
-uv pip install ipykernel simple-gpu-scheduler # very useful on runpod with multi-GPUs https://pypi.org/project/simple-gpu-scheduler/
-python -m ipykernel install --user --name=venv # so it shows up in jupyter notebooks within vscode
+#python -m ipykernel install --user --name=venv # so it shows up in jupyter notebooks within vscode
 
 # 3) Setup dotfiles and ZSH
 mkdir git && cd git
-git clone https://github.com/jplhughes/dotfiles.git
+git clone https://github.com/constanzafierro/dotfiles.git
 cd dotfiles
 ./install.sh --zsh --tmux
 chsh -s /usr/bin/zsh
