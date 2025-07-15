@@ -30,6 +30,9 @@ cd
 
 uv pip install wandb huggingface-hub
 wandb login "$WANDB_API_KEY"
+uv pip install git+https://github.com/safety-research/safety-tooling.git@main#egg=safetytooling
+mkdir safety-tooling && cp ~/.env_vars safety-tooling/.env
+
 uv pip install vllm --torch-backend=auto
 uv pip install packaging ninja
 uv pip install xformers==0.0.31.post1
