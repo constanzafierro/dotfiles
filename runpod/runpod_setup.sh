@@ -31,7 +31,7 @@ cd
 uv pip install wandb huggingface-hub
 wandb login "$WANDB_API_KEY"
 uv pip install git+https://github.com/safety-research/safety-tooling.git@main#egg=safetytooling
-export UV_TORCH_BACKEND=$(nvidia-smi 2>/dev/null | grep "CUDA Version" | sed -n 's/.*CUDA Version: \([0-9]\+\)\.\([0-9]\+\).*/cu\1\2/p') && [[ -n "$UV_TORCH_BACKEND" ]] || { echo "Error: CUDA not detected"; exit 1; }
+export UV_TORCH_BACKEND='cu128'
 uv pip install vllm --torch-backend=$UV_TORCH_BACKEND
 uv pip install packaging ninja
 #uv pip install xformers==0.0.31.post1
