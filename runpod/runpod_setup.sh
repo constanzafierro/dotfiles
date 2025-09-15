@@ -28,7 +28,7 @@ chsh -s /usr/bin/zsh
 ./deploy.sh
 cd
 
-uv pip install wandb huggingface-hub
+uv pip install wandb huggingface_hub
 wandb login "$WANDB_API_KEY"
 uv pip install git+https://github.com/safety-research/safety-tooling.git@main#egg=safetytooling
 export UV_TORCH_BACKEND='cu128'
