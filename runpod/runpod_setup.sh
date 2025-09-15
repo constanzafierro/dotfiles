@@ -28,17 +28,16 @@ chsh -s /usr/bin/zsh
 ./deploy.sh
 cd
 
-export UV_TORCH_BACKEND='cu128'
-uv pip install wandb huggingface_hub
+uv pip install wandb huggingface-hub
 wandb login "$WANDB_API_KEY"
 uv pip install git+https://github.com/safety-research/safety-tooling.git@main#egg=safetytooling
+export UV_TORCH_BACKEND='cu128'
 uv pip install vllm --torch-backend=$UV_TORCH_BACKEND
 uv pip install packaging ninja
 #uv pip install xformers==0.0.31.post1
 uv pip install packaging setuptools wheel
 uv pip install awscli pydantic
 uv cache clean
-export TMPDIR=/workspace/tmp
 uv pip install --no-build-isolation 'axolotl[deepspeed,flash-attn]'
 
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
