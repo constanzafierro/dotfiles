@@ -37,6 +37,8 @@ uv pip install packaging ninja
 #uv pip install xformers==0.0.31.post1
 uv pip install packaging setuptools wheel
 uv pip install awscli pydantic
+uv cache clean
+export TMPDIR=/workspace/tmp
 uv pip install --no-build-isolation 'axolotl[deepspeed,flash-attn]'
 
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
