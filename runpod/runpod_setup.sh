@@ -43,6 +43,7 @@ uv pip install ./flash_attn-2.8.3+cu128torch2.8-cp311-cp311-linux_x86_64.whl
 rm -f flash_attn*.whl
 #uv pip install axolotl --no-deps
 uv pip install --no-build-isolation 'axolotl[deepspeed]'
+pip install --upgrade huggingface_hub
 
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
 echo 'bindkey \^U backward-kill-line' >> ~/.zshrc
