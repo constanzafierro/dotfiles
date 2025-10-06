@@ -45,6 +45,7 @@ rm -f flash_attn*.whl
 uv pip install --no-build-isolation 'axolotl[deepspeed]'
 uv pip install --upgrade huggingface_hub
 uv pip install --upgrade transformers
+uv pip install --upgrade datasets
 uv pip uninstall numpy
 uv pip install numpy==2.2
 
