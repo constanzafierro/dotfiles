@@ -40,9 +40,10 @@ uv cache clean
 #uv pip install --no-build-isolation 'axolotl[deepspeed]'
 #uv pip install --upgrade huggingface_hub
 #uv pip install --upgrade transformers
-#uv pip install --upgrade datasets
+uv pip install accelerate
+uv pip install --upgrade datasets
 #uv pip uninstall numpy
-#uv pip install numpy==2.2
+uv pip install numpy==2.2
 
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
 echo 'bindkey \^U backward-kill-line' >> ~/.zshrc
