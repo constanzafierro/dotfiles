@@ -47,3 +47,5 @@ uv pip install numpy==2.2
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
 echo 'bindkey \^U backward-kill-line' >> ~/.zshrc
 git config --global core.excludesfile /workspace/.gitignore_global
+
+curl -fsSL https://claude.ai/install.sh | bash
