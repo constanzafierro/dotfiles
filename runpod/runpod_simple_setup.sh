@@ -19,6 +19,20 @@ uv venv
 source .venv/bin/activate
 uv pip install ipykernel
 python -m ipykernel install --user --name=venv # so it shows up in jupyter notebooks within vscode
+# Inject env into the venv kernelspec so Jupyter kernels see it
+# regardless of how the Jupyter server was started
+python - <<'EOF'
+import json, os
+p = os.path.expanduser("~/.local/share/jupyter/kernels/venv/kernel.json")
+d = json.load(open(p))
+d["env"] = {
+    "PATH": os.path.expanduser("~/.venv/bin") + ":${PATH}",
+    "VIRTUAL_ENV": os.path.expanduser("~/.venv"),
+    "HF_HOME": os.environ["HF_HOME"],
+    "HF_HUB_CACHE": os.environ["HF_HUB_CACHE"],
+}
+json.dump(d, open(p, "w"), indent=1)
+EOF
 
 # 3) Setup dotfiles and ZSH
 mkdir git && cd git
