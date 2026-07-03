@@ -34,3 +34,6 @@ wandb login "$WANDB_API_KEY"
 cat ~/.env_vars | tee -a /root/git/dotfiles/config/zshrc.sh
 echo 'bindkey \^U backward-kill-line' >> ~/.zshrc
 git config --global core.excludesfile /workspace/.gitignore_global
+
+# RunPod proxy SSH always starts bash; hand off to zsh
+if [ -t 1 ] && [ -x /usr/bin/zsh ] && [ -z "$ZSH_VERSION" ]; then cd ~ && exec /usr/bin/zsh -l; fi
